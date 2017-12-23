@@ -1,0 +1,26 @@
+language: java
+jdk:
+  - oraclejdk8
+dist: trusty
+install:
+  - mvn clean
+script:
+  - mvn verify -P travis
+#  - mvn clean install sonar:sonar
+after_success:
+#  - codecov
+  - bash <(curl -s https://codecov.io/bash) -t 712977fca5db43a0b0076c9e1fa58b1b
+#cache:
+#    directories:
+#        - $HOME/.m2
+#notifications:
+#  email:
+#    recipients:
+#      - duo.liu@kikatech.com
+#    on_success: change
+#    on_failure: always
+#  slack:
+#    rooms:
+#      - xinmei:o1s98YYkax9sjJmUBapVzyll
+#    on_success: change
+#    on_failure: always
