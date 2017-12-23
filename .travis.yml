@@ -9,7 +9,7 @@ script:
 #  - mvn clean install sonar:sonar
 after_success:
 #  - codecov
-  - bash <(curl -s https://codecov.io/bash) -t 712977fca5db43a0b0076c9e1fa58b1b
+  - mvn clean test jacoco:report coveralls:report
 #cache:
 #    directories:
 #        - $HOME/.m2
